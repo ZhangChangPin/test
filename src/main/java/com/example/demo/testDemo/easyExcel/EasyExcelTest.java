@@ -1,3 +1,4 @@
+/*
 package com.example.demo.testDemo.easyExcel;
 
 import java.io.File;
@@ -35,21 +36,25 @@ import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
 import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy;
 import org.junit.jupiter.api.Test;
 
+*/
 /**
  * 写的常见写法
  *
  * @author Jiaju Zhuang
- */
+ *//*
+
 @Ignore
 public class WriteTest {
     public static String url = "E://";
-    /**
+    */
+/**
      * 最简单的写
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link DemoData}
      * <p>
      * 2. 直接写即可
-     */
+     *//*
+
     @Test
     public void simpleWrite() {
         // 写法1
@@ -68,7 +73,8 @@ public class WriteTest {
         excelWriter.finish();
     }
 
-    /**
+    */
+/**
      * 根据参数只导出指定列
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link DemoData}
@@ -78,7 +84,8 @@ public class WriteTest {
      * 3. 直接写即可
      *
      * @since 2.1.1
-     */
+     *//*
+
     @Test
     public void excludeOrIncludeWrite() {
         String fileName = url + "excludeOrIncludeWrite" + System.currentTimeMillis() + ".xlsx";
@@ -99,7 +106,8 @@ public class WriteTest {
                 .doWrite(data());
     }
 
-    /**
+    */
+/**
      * 指定写入的列
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link IndexData}
@@ -107,7 +115,8 @@ public class WriteTest {
      * 2. 使用{@link ExcelProperty}注解指定写入的列
      * <p>
      * 3. 直接写即可
-     */
+     *//*
+
     @Test
     public void indexWrite() {
         String fileName = url + "indexWrite" + System.currentTimeMillis() + ".xlsx";
@@ -115,7 +124,8 @@ public class WriteTest {
         EasyExcel.write(fileName, IndexData.class).sheet("模板").doWrite(data());
     }
 
-    /**
+    */
+/**
      * 复杂头写入
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link ComplexHeadData}
@@ -123,7 +133,8 @@ public class WriteTest {
      * 2. 使用{@link ExcelProperty}注解指定复杂的头
      * <p>
      * 3. 直接写即可
-     */
+     *//*
+
     @Test
     public void complexHeadWrite() {
         String fileName = url + "complexHeadWrite" + System.currentTimeMillis() + ".xlsx";
@@ -131,7 +142,8 @@ public class WriteTest {
         EasyExcel.write(fileName, ComplexHeadData.class).sheet("模板").doWrite(data());
     }
 
-    /**
+    */
+/**
      * 重复多次写入
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link ComplexHeadData}
@@ -139,7 +151,8 @@ public class WriteTest {
      * 2. 使用{@link ExcelProperty}注解指定复杂的头
      * <p>
      * 3. 直接调用二次写入即可
-     */
+     *//*
+
     @Test
     public void repeatedWrite() {
         // 方法1 如果写到同一个sheet
@@ -188,7 +201,8 @@ public class WriteTest {
         excelWriter.finish();
     }
 
-    /**
+    */
+/**
      * 日期、数字或者自定义格式转换
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link ConverterData}
@@ -196,7 +210,8 @@ public class WriteTest {
      * 2. 使用{@link ExcelProperty}配合使用注解{@link DateTimeFormat}、{@link NumberFormat}或者自定义注解
      * <p>
      * 3. 直接写即可
-     */
+     *//*
+
     @Test
     public void converterWrite() {
         String fileName = url + "converterWrite" + System.currentTimeMillis() + ".xlsx";
@@ -204,13 +219,15 @@ public class WriteTest {
         EasyExcel.write(fileName, ConverterData.class).sheet("模板").doWrite(data());
     }
 
-    /**
+    */
+/**
      * 图片导出
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link ImageData}
      * <p>
      * 2. 直接写即可
-     */
+     *//*
+
     @Test
     public void imageWrite() throws Exception {
         String fileName = url + "imageWrite" + System.currentTimeMillis() + ".xlsx";
@@ -237,7 +254,8 @@ public class WriteTest {
         }
     }
 
-    /**
+    */
+/**
      * 根据模板写入
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link IndexData}
@@ -247,7 +265,8 @@ public class WriteTest {
      * 3. 使用withTemplate 写取模板
      * <p>
      * 4. 直接写即可
-     */
+     *//*
+
     @Test
     public void templateWrite() {
         String templateFileName = url + "demo" + File.separator + "demo.xlsx";
@@ -256,7 +275,8 @@ public class WriteTest {
         EasyExcel.write(fileName, DemoData.class).withTemplate(templateFileName).sheet().doWrite(data());
     }
 
-    /**
+    */
+/**
      * 列宽、行高
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link WidthAndHeightData}
@@ -264,7 +284,8 @@ public class WriteTest {
      * 2. 使用注解{@link ColumnWidth}、{@link HeadRowHeight}、{@link ContentRowHeight}指定宽度或高度
      * <p>
      * 3. 直接写即可
-     */
+     *//*
+
     @Test
     public void widthAndHeightWrite() {
         String fileName = url + "widthAndHeightWrite" + System.currentTimeMillis() + ".xlsx";
@@ -272,7 +293,8 @@ public class WriteTest {
         EasyExcel.write(fileName, WidthAndHeightData.class).sheet("模板").doWrite(data());
     }
 
-    /**
+    */
+/**
      * 自定义样式
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link DemoData}
@@ -280,7 +302,8 @@ public class WriteTest {
      * 2. 创建一个style策略 并注册
      * <p>
      * 3. 直接写即可
-     */
+     *//*
+
     @Test
     public void styleWrite() {
         String fileName = url + "styleWrite" + System.currentTimeMillis() + ".xlsx";
@@ -310,7 +333,8 @@ public class WriteTest {
                 .doWrite(data());
     }
 
-    /**
+    */
+/**
      * 合并单元格
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link DemoData}
@@ -318,7 +342,8 @@ public class WriteTest {
      * 2. 创建一个merge策略 并注册
      * <p>
      * 3. 直接写即可
-     */
+     *//*
+
     @Test
     public void mergeWrite() {
         String fileName = url + "mergeWrite" + System.currentTimeMillis() + ".xlsx";
@@ -328,13 +353,15 @@ public class WriteTest {
         EasyExcel.write(fileName, DemoData.class).registerWriteHandler(loopMergeStrategy).sheet("模板").doWrite(data());
     }
 
-    /**
+    */
+/**
      * 使用table去写入
      * <p>
      * 1. 创建excel对应的实体对象 参照{@link DemoData}
      * <p>
      * 2. 然后写入table即可
-     */
+     *//*
+
     @Test
     public void tableWrite() {
         String fileName = url + "tableWrite" + System.currentTimeMillis() + ".xlsx";
@@ -354,7 +381,8 @@ public class WriteTest {
         excelWriter.finish();
     }
 
-    /**
+    */
+/**
      * 动态头，实时生成头写入
      * <p>
      * 思路是这样子的，先创建List<String>头格式的sheet仅仅写入头,然后通过table 不写入头的方式 去写入数据
@@ -363,7 +391,8 @@ public class WriteTest {
      * 1. 创建excel对应的实体对象 参照{@link DemoData}
      * <p>
      * 2. 然后写入table即可
-     */
+     *//*
+
     @Test
     public void dynamicHeadWrite() {
         String fileName = url + "dynamicHeadWrite" + System.currentTimeMillis() + ".xlsx";
@@ -374,7 +403,8 @@ public class WriteTest {
                 .doWrite(data());
     }
 
-    /**
+    */
+/**
      * 自动列宽(不太精确)
      * <p>
      * 这个目前不是很好用，比如有数字就会导致换行。而且长度也不是刚好和实际长度一致。 所以需要精确到刚好列宽的慎用。 当然也可以自己参照
@@ -388,7 +418,8 @@ public class WriteTest {
      * 2. 注册策略{@link LongestMatchColumnWidthStyleStrategy}
      * <p>
      * 3. 直接写即可
-     */
+     *//*
+
     @Test
     public void longestMatchColumnWidthWrite() {
         String fileName =
@@ -398,7 +429,8 @@ public class WriteTest {
                 .registerWriteHandler(new LongestMatchColumnWidthStyleStrategy()).sheet("模板").doWrite(dataLong());
     }
 
-    /**
+    */
+/**
      * 下拉，超链接等自定义拦截器（上面几点都不符合但是要对单元格进行操作的参照这个）
      * <p>
      * demo这里实现2点。1. 对第一行第一列的头超链接到:https://github.com/alibaba/easyexcel 2. 对第一列第一行和第二行的数据新增下拉框，显示 测试1 测试2
@@ -408,7 +440,8 @@ public class WriteTest {
      * 2. 注册拦截器 {@link CustomCellWriteHandler} {@link CustomSheetWriteHandler}
      * <p>
      * 2. 直接写即可
-     */
+     *//*
+
     @Test
     public void customHandlerWrite() {
         String fileName = url + "customHandlerWrite" + System.currentTimeMillis() + ".xlsx";
@@ -417,9 +450,11 @@ public class WriteTest {
                 .registerWriteHandler(new CustomCellWriteHandler()).sheet("模板").doWrite(data());
     }
 
-    /**
+    */
+/**
      * 不创建对象的写
-     */
+     *//*
+
     @Test
     public void noModleWrite() {
         // 写法1
@@ -478,4 +513,4 @@ public class WriteTest {
         return list;
     }
 
-}
+}*/

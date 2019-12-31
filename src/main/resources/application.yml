@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.2.10:43306/new-qwms?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: qtools
+    password: Qaz123456
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 8080
+mybatis:
+  mapper-locations: classpath*:springMVC/*.xml

@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class testController {
     @Autowired
     private WsUrRoleMapper wsUrRoleMapper;
+
     @GetMapping("/hello")
-    public WsUrRole hello (){
-       return wsUrRoleMapper.selectByPrimaryKey(101000);
+    public WsUrRole hello() {
+        return wsUrRoleMapper.selectByPrimaryKey(101000);
     }
 }

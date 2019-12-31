@@ -39,7 +39,7 @@
                 <!-- <javaClientGenerator type="XMLMAPPER" targetPackage="com.qtoolsbb.sp.dao.mapper" -->
                 <javaClientGenerator targetProject="src/main/java" targetPackage="com.example.demo.testDemo.springMVC.mapper" type="XMLMAPPER">
                         <property name="enableSubPackages" value="false"/>
-                        <!--<property name="rootInterface" value="com.qtoolsbb.base.BaseMapper"/>-->
+                        <property name="rootInterface" value="com.example.demo.BaseMapper"/>
                 </javaClientGenerator>
 
                 <table selectByExampleQueryId="ture" enableSelectByExample="ture" enableDeleteByExample="ture" enableUpdateByExample="ture" enableCountByExample="ture" domainObjectName="WsUrRole" tableName="ws_ur_role">

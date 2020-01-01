@@ -3,9 +3,15 @@ server:
 
 eureka:
   client:
-    serviceUrl: #\u6CE8\u518C\u4E2D\u5FC3\u7684\u6CE8\u518C\u5730\u5740
-      defaultZone: http://127.0.0.1:8060/eureka/
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8060/eureka/ #注册中心的注册地址
 
 spring:
   application:
-    name: service-provider #\u670D\u52A1\u540D\u79F0--\u8C03\u7528\u7684\u65F6\u5019\u6839\u636E\u540D\u79F0\u6765\u8C03\u7528\u8BE5\u670D\u52A1\u7684\u65B9\u6CD5
+    name: service-provider #服务名称--调用的时候根据名称来调用该服务的方法
+  datasource:
+    url: jdbc:mysql://192.168.2.10:43306/new-qwms?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    username: qtools
+    password: Qaz123456
+    driver-class-name: com.mysql.jdbc.Driver
+

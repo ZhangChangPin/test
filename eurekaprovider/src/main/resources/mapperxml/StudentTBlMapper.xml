@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.StudentTBlMapper">
+    <resultMap id="BaseResultMap" type="com.example.eurekaconsumer.entity.StudentTBl">
+        <id column="studentId" property="studentId" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="createTime" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        studentId, `name`, age, createTime
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from student
+        where studentId = #{studentId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from student
+        where studentId = #{studentId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.example.eurekaconsumer.entity.StudentTBl">
+        <selectKey resultType="java.lang.Integer" keyProperty="studentId" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into student (`name`, age, createTime
+        )
+        values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.example.eurekaconsumer.entity.StudentTBl">
+        <selectKey resultType="java.lang.Integer" keyProperty="studentId" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="age != null">
+                age,
+            </if>
+            <if test="createTime != null">
+                createTime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                #{age,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.example.eurekaconsumer.entity.StudentTBl">
+        update student
+        <set>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                age = #{age,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                createTime = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where studentId = #{studentId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.example.eurekaconsumer.entity.StudentTBl">
+        update student
+        set `name` = #{name,jdbcType=VARCHAR},
+        age = #{age,jdbcType=INTEGER},
+        createTime = #{createTime,jdbcType=TIMESTAMP}
+        where studentId = #{studentId,jdbcType=INTEGER}
+    </update>
+</mapper>

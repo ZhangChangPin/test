@@ -14,8 +14,9 @@ public class SXSSFWorkbookTest {
 
     public static void main(String[] args) throws IOException {
 
-       testWriteLargeData();
+        testWriteLargeData();
     }
+
     public static void testWriteLargeData() throws IOException {
 
         SXSSFWorkbook wb = new SXSSFWorkbook();
@@ -40,7 +41,7 @@ public class SXSSFWorkbookTest {
         }
         System.out.println("初始化数据源开始");
         Date initDataStart = new Date();
-        for(int rownum = 0; rownum < list.size(); rownum++){
+        for (int rownum = 0; rownum < list.size(); rownum++) {
             SXSSFRow row = sh.createRow(rownum);
             row.createCell(0).setCellValue(list.get(rownum).getName1());
             row.createCell(1).setCellValue(list.get(rownum).getName2());
@@ -55,19 +56,16 @@ public class SXSSFWorkbookTest {
         }
         System.out.println("初始化数据源结束");
         Date initDataEnd = new Date();
-        System.out.println("初始化数据源耗时："+new Date(initDataEnd.getTime()-initDataStart.getTime()).getTime());
+        System.out.println("初始化数据源耗时：" + new Date(initDataEnd.getTime() - initDataStart.getTime()).getTime());
         Date start = new Date();
-        FileOutputStream out = new FileOutputStream("E://"+new Date().getTime()+".xlsx");
+        FileOutputStream out = new FileOutputStream("E://" + new Date().getTime() + ".xlsx");
         wb.write(out);
         out.close();
         // dispose of temporary files backing this workbook on disk
         wb.dispose();
         Date end = new Date();
-        System.out.println("导入耗时："+new Date(end.getTime()-start.getTime()).getTime());
+        System.out.println("导入耗时：" + new Date(end.getTime() - start.getTime()).getTime());
     }
-
-
-
 
 
 }

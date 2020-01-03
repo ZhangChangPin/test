@@ -10,8 +10,19 @@ spring:
   application:
     name: service-provider #服务名称--调用的时候根据名称来调用该服务的方法
   datasource:
-    url: jdbc:mysql://192.168.2.10:43306/new-qwms?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
-    username: qtools
-    password: Qaz123456
+    url: jdbc:mysql://47.103.83.230:3306/mysql?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
+    username: root
+    password: 2009@qazWSX
     driver-class-name: com.mysql.jdbc.Driver
 
+mybatis:
+  mapper-locations: classpath*:mapperxml/*.xml
+
+
+
+logging:
+  level:
+    #mybatis日志打印级别 对应接口包位置
+    com.example.mapper: debug
+    #系统日志打印级别
+    root: info
